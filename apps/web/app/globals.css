@@ -1,4 +1,22 @@
-:root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  body > div:first-child,
+  div#__next,
+  div#__next > div {
+    @apply h-full min-h-full;
+  }
+
+  :root {
+    --nav-height: 64px;
+  }
+}
+
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
@@ -47,4 +65,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
+} */

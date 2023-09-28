@@ -37,6 +37,9 @@ module.exports = {
   ignorePatterns: ["node_modules/", "dist/", ".eslintrc.js"],
 
   rules: {
+    "no-console": "off",
     "import/no-default-export": "off",
+    "import/no-named-as-default": "off",
+    "react/function-component-definition": "off",
   },
 }
