@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
+import { track } from "@vercel/analytics"
 import { courses } from "./constants/courses"
 
 // This function can be marked `async` if using `await` inside
@@ -9,6 +10,8 @@ export function middleware(request: NextRequest): NextResponse | null {
   const course = courses.find(e => e.slug === courseFromPathname)
 
   if (!course) return null
+
+  track("Middleware course redirection", { course: course.title })
 
   return NextResponse.redirect(new URL(course.redirectLink))
 }
