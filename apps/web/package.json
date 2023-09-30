@@ -18,8 +18,8 @@
     "ui": "workspace:*"
   },
   "devDependencies": {
-    "@lauwersoo/tsconfig": "workspace:*",
     "@lauwersoo/tailwind-config": "workspace:*",
+    "@lauwersoo/tsconfig": "workspace:*",
     "@next/eslint-plugin-next": "^13.5.3",
     "@types/node": "^20.5.2",
     "@types/react": "^18.2.0",

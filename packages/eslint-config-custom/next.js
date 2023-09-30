@@ -44,5 +44,7 @@ module.exports = {
     "import/no-default-export": "off",
     "import/no-named-as-default": "off",
     "react/function-component-definition": "off",
+    "eslint-comments/require-description": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
   },
 }
