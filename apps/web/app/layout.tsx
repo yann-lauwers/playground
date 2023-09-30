@@ -6,6 +6,7 @@ import clsx from "clsx"
 import { Analytics } from "@vercel/analytics/react"
 import { Button } from "ui"
 import Image from "next/image"
+import Script from "next/script"
 
 export const metadata: Metadata = {
   title: "Create Turborepo",
@@ -30,6 +31,9 @@ export default function RootLayout({ children }: PropsWithChildren): JSX.Element
 
   return (
     <html lang="en">
+      <head>
+        <Script data-domain="yann-lauwers.io" defer src="https://plausible.io/js/script.js" />
+      </head>
       <body
         className={clsx("bg-background min-h-screen font-sans antialiased")}
         style={{ "--navmargin": "1.5rem", "--navheight": "2.5rem" } as CSSProperties}
