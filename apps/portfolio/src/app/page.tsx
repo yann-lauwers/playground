@@ -14,7 +14,7 @@ import {
 import logoEmbie from '@/images/logos/embie.svg'
 import image1 from '@/images/photos/4l-trophy.jpg'
 import image2 from '@/images/photos/triathlon-bycicle.jpg'
-import image3 from '@/images/photos/couple.jpg'
+import image3 from '@/images/photos/moto.jpg'
 import image4 from '@/images/photos/hockey.jpg'
 import image5 from '@/images/photos/golf.jpg'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'

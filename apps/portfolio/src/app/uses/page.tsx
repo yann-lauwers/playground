@@ -36,41 +36,32 @@ function Tool({
 
 export const metadata = {
   title: 'Uses',
-  description: 'Software I use, gadgets I love, and other things I recommend.',
+  description: 'Software essentials, beloved tech gear, and items I endorse.',
 }
 
 export default function Uses() {
   return (
     <SimpleLayout
-      title="Software I use, gadgets I love, and other things I recommend."
-      intro="I get asked a lot about the things I use to build software, stay productive, or buy to fool myself into thinking I’m being productive when I’m really just procrastinating. Here’s a big list of all of my favorite stuff."
+      title="Software essentials, beloved tech gear, and items I endorse."
+      intro="I like sharing with others what I believe makes me an efficient, organized, and professional person. I've listed all the things I adore right here."
     >
       <div className="space-y-20">
         <ToolsSection title="Workstation">
-          <Tool title="16” MacBook Pro, M1 Max, 64GB RAM (2021)">
-            I was using an Intel-based 16” MacBook Pro prior to this and the
-            difference is night and day. I’ve never heard the fans turn on a
-            single time, even under the incredibly heavy loads I put it through
-            with our various launch simulations.
+          <Tool title="13” MacBook Pro, M1, 16GB RAM (2020)">
+            I have always used an Apple computer. I love the user experience
+            they provide and the software design. Since they released Apple
+            Silicon chips, we&apos;re in a new world. No more noisy fans, and
+            there&apos;s power for everything.
           </Tool>
-          <Tool title="Apple Pro Display XDR (Standard Glass)">
-            The only display on the market if you want something HiDPI and
-            bigger than 27”. When you’re working at planetary scale, every pixel
-            you can get counts.
+          <Tool title="Samsung 32” Odissey G7 (curved)">
+            The Samsung 32” Odyssey G7 (curved) boasts a mesmerizing QLED
+            display, immersive 1000R curvature, and high-speed 240Hz refresh
+            rate, elevating the coding and design experience.
           </Tool>
-          <Tool title="IBM Model M SSK Industrial Keyboard">
-            They don’t make keyboards the way they used to. I buy these any time
-            I see them go up for sale and keep them in storage in case I need
-            parts or need to retire my main.
-          </Tool>
-          <Tool title="Apple Magic Trackpad">
-            Something about all the gestures makes me feel like a wizard with
-            special powers. I really like feeling like a wizard with special
-            powers.
-          </Tool>
-          <Tool title="Herman Miller Aeron Chair">
-            If I’m going to slouch in the worst ergonomic position imaginable
-            all day, I might as well do it in an expensive chair.
+          <Tool title="Targus docking station">
+            If there is one thing I really like when I sit down to work is the
+            ability to plug in a single cable and have everything just work.
+            This docking station does that for me.
           </Tool>
         </ToolsSection>
         <ToolsSection title="Development tools">
