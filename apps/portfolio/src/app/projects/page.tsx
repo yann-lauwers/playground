@@ -5,6 +5,8 @@ import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import logoCarolineDebray from '@/images/logos/caroline-debray.svg'
 import logoLaPepite from '@/images/logos/lapepite.svg'
+import pdfMerge from '@/images/logos/pdf-merge.svg'
+import gameOfLife from '@/images/logos/game-of-life.svg'
 
 const projects = [
   {
@@ -19,6 +21,24 @@ const projects = [
       'Portfolio of Caroline Debray, a belgian poet & painter based in the netherlands',
     link: { href: 'https://carolinedebray.com', label: 'carolinedebray.com' },
     logo: logoCarolineDebray,
+  },
+  {
+    name: 'Game of life',
+    description: 'The famous game of life reproduced in React',
+    link: {
+      href: 'https://game-of-life-nu-opal.vercel.app/',
+      label: 'game-of-life-nu-opal.vercel.app',
+    },
+    logo: gameOfLife,
+  },
+  {
+    name: 'PDF Merge',
+    description: 'Merge multiple PDF to make one PDF',
+    link: {
+      href: 'https://pdf-merge-rust.vercel.app/',
+      label: 'pdf-merge-rust.vercel.app',
+    },
+    logo: pdfMerge,
   },
 ]
 
@@ -35,14 +55,14 @@ function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description: 'Things I’ve made trying to put my dent in the universe.',
+  description: 'Projects I built on the side over the years',
 }
 
 export default function Projects() {
   return (
     <SimpleLayout
-      title="Things I’ve made trying to put my dent in the universe."
-      intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+      title="Projects I've built on the side over the years"
+      intro="I love to work on side projects. I've made many of them over the years, and here's the list of those. From the last one to the first one."
     >
       <ul
         role="list"
