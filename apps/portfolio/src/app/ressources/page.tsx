@@ -41,16 +41,16 @@ function Appearance({
 }
 
 export const metadata: Metadata = {
-  title: 'Speaking',
+  title: 'Ressource',
   description:
     'I love to read articles, watch videos and listen to audiobooks.',
 }
 
-export default function Speaking() {
+export default function Ressource() {
   return (
     <SimpleLayout
       title="I love to read articles, watch videos and listen to audiobooks."
-      intro="My favorite way of keeping up to date is by reading articles. I also like to listening to audiobooks and watch videos."
+      intro="My favorite way of keeping up to date is by reading articles. I also like to listening to audiobooks and watch videos. Here are the best ones I found since the beginning of my career."
     >
       <div className="space-y-20">
         <RessourceSection title="Articles">
