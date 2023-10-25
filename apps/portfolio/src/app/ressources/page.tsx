@@ -94,7 +94,7 @@ export default function Ressource() {
             cta="Watch video"
           />
         </RessourceSection>
-        <RessourceSection title="Newsletter">
+        <RessourceSection title="Newsletters">
           <Appearance
             href="https://thisweekinreact.com/"
             title="This week in react"
