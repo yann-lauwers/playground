@@ -50,8 +50,8 @@ export default function Uses() {
           <Tool title="13” MacBook Pro, M1, 16GB RAM (2020)">
             I have always used an Apple computer. I love the user experience
             they provide and the software design. Since they released Apple
-            Silicon chips, we&apos;re in a new world. No more noisy fans, and
-            there&apos;s power for everything.
+            Silicon chips, we’re in a new world. No more noisy fans, and there’s
+            power for everything.
           </Tool>
           <Tool title="Samsung 32” Odissey G7 (curved)">
             The Samsung 32” Odyssey G7 (curved) boasts a mesmerizing QLED
@@ -66,9 +66,9 @@ export default function Uses() {
         </ToolsSection>
         <ToolsSection title="Development tools">
           <Tool title="Visual Studio Code">
-            I&apos;ve tried a few code editors. I&apos;ve used WebStorm and
-            Sublime Text, but I always come back to VS Code. It&apos;s fast,
-            it&apos;s free, and has a lot of cool plugins.
+            I’ve tried a few code editors. I’ve used WebStorm and Sublime Text,
+            but I always come back to VS Code. It’s fast, it’s free, and has a
+            lot of cool plugins.
           </Tool>
 
           <Tool title="TablePlus">
@@ -80,7 +80,7 @@ export default function Uses() {
         <ToolsSection title="Design">
           <Tool title="Figma">
             I discovered Figma when I started learning to code. I learn more
-            about the tool every time I use it. I feel like I&apos;m empowering
+            about the tool every time I use it. I feel like I’m empowering
             myself every day, and I use it in every project.
           </Tool>
         </ToolsSection>
@@ -92,13 +92,13 @@ export default function Uses() {
           </Tool>
           <Tool title="Raycast">
             Fast, keyboard-driven, and extensible, I use it to launch apps, run
-            projects in VSCode, and many more thanks to the plugins. It&apos;s
-            the best way to save time in your day.
+            projects in VSCode, and many more thanks to the plugins. It’s the
+            best way to save time in your day.
           </Tool>
           <Tool title="Fantastical">
-            I&apos;m organized. I like to have everything in my calendar, from
-            my reminders to my professional and personal events. Fantastical is
-            the best calendar app I&apos;ve used so far that fits all my needs.
+            I’m organized. I like to have everything in my calendar, from my
+            reminders to my professional and personal events. Fantastical is the
+            best calendar app I’ve used so far that fits all my needs.
           </Tool>
         </ToolsSection>
       </div>

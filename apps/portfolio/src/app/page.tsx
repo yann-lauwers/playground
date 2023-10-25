@@ -118,8 +118,8 @@ function Newsletter() {
         <span className="ml-3">Reach me out</span>
       </h2>
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Contact me for any questions, requests or job offer. I&apos;ll get back
-        to you as soon as possible.
+        Contact me for any questions, requests or job offer. I’ll get back to
+        you as soon as possible.
       </p>
       <div className="mt-6">
         {/* <input

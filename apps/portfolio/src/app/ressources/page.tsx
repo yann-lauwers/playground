@@ -94,6 +94,22 @@ export default function Ressource() {
             cta="Watch video"
           />
         </RessourceSection>
+        <RessourceSection title="Newsletter">
+          <Appearance
+            href="https://thisweekinreact.com/"
+            title="This week in react"
+            description="A weekly newsletter to stay up-to-date with React & React-Native."
+            author="Sébastian Lorber"
+            cta="Subscribe"
+          />
+          <Appearance
+            href="https://bytes.dev/"
+            title="bytes.dev"
+            description="The most entertaining (and informative) JavaScript newsletter."
+            author="Tyler McGinnis"
+            cta="Subscribe"
+          />
+        </RessourceSection>
       </div>
     </SimpleLayout>
   )
