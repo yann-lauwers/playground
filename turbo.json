@@ -3,10 +3,12 @@
   "globalDependencies": ["**/.env.*local"],
   "pipeline": {
     "build": {
+      "env": ["NEXT_PUBLIC_SITE_URL"],
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "start": {
+      "env": ["NEXT_PUBLIC_SITE_URL"],
       "dependsOn": ["^build"]
     },
     "lint": {},

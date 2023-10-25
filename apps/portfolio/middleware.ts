@@ -1,4 +1,4 @@
-import { COURSES } from '@/app/courses/page'
+import { COURSES } from '@/lib/courses'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
