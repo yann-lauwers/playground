@@ -1,11 +1,13 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import laPepite from './la-pepite.png'
 
 export const article = {
-  author: 'Adam Wathan',
-  date: '2022-09-02',
-  title: 'Introducing Animaginary: High performance web animations',
+  author: 'Yann Lauwers',
+  date: '2023-10-27',
+  title: 'Creating a responsive background color change',
   description:
-    'When you’re building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself.',
+    'I struggled a lot creating a responsive solution for background color change in the middle of a div. Linear gradient solves it all.',
 }
 
 export const metadata = {
@@ -15,36 +17,15 @@ export const metadata = {
 
 export default (props) => <ArticleLayout article={article} {...props} />
 
-When you’re building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself.
+Lately I had to create this kind of responsive background color change in the middle of a div. I struggled a lot to find a solution that would work on all browsers.
 
-To make this possible, we needed to squeeze every drop of performance out of the browser possible. And so Animaginary was born.
+<Image src={laPepite} alt="" />
 
-```js
-import { animate } from '@planetaria/animaginary'
+I derive a large amount of my self-worth from whether or not Hacker News is impressed with the work I'm doing, so when I realized this, I cancelled all of our existing projects and started migrating everything to Rust immediately.
 
-export function MyComponent({ open, children }) {
-  return (
-    <animate.div
-      in={open}
-      animateFrom="opacity-0 scale-95"
-      animateTo="opacity-100 scale-100"
-      duration={350}
-    >
-      {children}
-    </animate.div>
-  )
-}
-```
+## Can I use
 
-Animaginary is our new web animation library that redefines what you thought was possible on the web. Hand-written in optimized WASM, Animaginary can even animate the `height` property of an element at 60fps.
-
-## Sermone fata
-
-Lorem markdownum, bracchia in redibam! Terque unda puppi nec, linguae posterior
-in utraque respicere candidus Mimasque formae; quae conantem cervice. Parcite
-variatus, redolentia adeunt. Tyrioque dies, naufraga sua adit partibus celanda
-torquere temptata, erit maneat et ramos, [iam](#) ait dominari
-potitus! Tibi litora matremque fumantia condi radicibus opusque.
+One of the first thing I did was to go on Caniuse to check the compatibility of Linear gradient with the browsers. It's a CSS property I do not often use so I prefer to make sure everyone will see what I see.
 
 Deus feram verumque, fecit, ira tamen, terras per alienae victum. Mutantur
 levitate quas ubi arcum ripas oculos abest. Adest [commissaque

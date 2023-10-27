@@ -1,0 +1,78 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import laPepite from './la-pepite.png'
+
+export const article = {
+  author: 'Yann Lauwers',
+  date: '2023-10-26',
+  title:
+    'Projet de Réservation de Chambres d’Hôtes : Implémentation avec Next.js 13 et les Défis du Cache',
+  description:
+    'Dans cet article, je partage mon parcours de l’implémentation d’un site de réservation de chambres d’hôtes avec Next.js 13. Je vous raconte comment j’ai solutionné l’un des problèmes que j’ai rencontrés : la gestion du cache. Je vous explique aussi la solution que j’ai choisie tout en garantissant une expérience utilisateur optimale',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+Chez Embie, on aime être à la pointe et produire les meilleurs produits sur le marché. C’est ce qu’on m’a enseigné depuis mon arrivée. C’est pourquoi, quand j’ai eu un projet à réaliser dans mon temps libre, j’ai choisi Next 13 pour le réaliser.
+
+<Image src={laPepite} alt="" />
+
+Je suis conscient que mon choix technologique n’est pas le plus adapté au projet. Next 13, un framework optimisé pour le server side rendering, pour une application majoritairement statique ? C’est un peu comme utiliser un marteau pour visser une vis. J’exagère peut-être un peu, mais c’est l’idée. De toute façon, ce qui m’importe à la fin, c’est que le client soit content et que je puisse acquérir de l’expérience.
+
+## Le projet
+
+Brève explication de ce qu’est <a href="https://lapepite.net" target="_blank">la pépite</a>. C’est un site qui permet de réserver des chambres d’hôtes chez deux passionnés, Bernard et Chantal, dans les ardennes française. Les seuls requirements du client:
+
+- Le site doit être agréable, facile à utiliser et responsive
+- Le site doit pouvoir se connecter à des systèmes de réservation externes tels que Airbnb ou Booking.com
+- On doit pouvoir réserver une chambre depuis le site sans avoir à passer par un autre site
+
+## Utilisation de Next 13
+
+Dans l’ensemble, j’ai été agréablement surpris par la facilité d’utilisation de Next13. On a une vague impression d’être sur un framework un petit peu différent que la version 12 mais la documentation assez complète permet de toujours retomber sur ses pieds. Il m’a fallu quelques aller-retours sur la <a href="https://nextjs.org/docs" target="_blank">documentation officielle</a> pour comprendre comment fonctionnent les layout, les templates, le nouvel API, et la nouvelle nomenclature de fichiers obligatoire. Mais une fois ces quelques notions acquises, j’ai pu avancer assez rapidement.
+
+## Des problèmes ?
+
+Évidement je ne ferais pas cet article si tout est tout beau, tout rose.
+Le client me revient deux semaines après avoir lancé le site avec le problème suivant:
+
+> J’ai changé les prix des maisons dans l’outil externe mais ça n’apparait pas quand je clique sur le bouton de recherche de disponibilité.
+
+Et là, je me dis mince. Comment est-ce que j’ai pu louper un détail aussi important ?
+
+Je fais un test et effectivement les prix de la chambre ne changent pas quand on navigue sur la page où se trouvent les données, c’est à dire: *https://www.lapepite.net/reservation?arrivalDate=2023-10-27T00%3A00%3A00.000Z&departureDate=2023-10-28T00%3A00%3A00.000Z&adults=2*, que l’on change les prix dans l’outil externe et qu’ensuite on clique à nouveau sur le bouton rechercher.
+En revanche, si on recharge la page, ça fonctionne. <br/>Génial, une solution mais je ne suis pas sûr qu’un client soit ravi qu’on lui dise, ne t’inquiète pas, si l’utilisateur recharge la page, ça fonctionne.
+
+Je me mets donc à la recherche d’une solution. Je me dis que ça doit être un problème de cache. Je vais donc voir dans la documentation de Next 13 comment désactiver le cache. Je trouve trois solutions assez rapidement.
+
+1. Ajouter `export const dynamic = ’force-dynamic’` dans le fichier `page.tsx` de ma route.
+2. Ajouter `export const revalidate = 0` dans le fichier `page.tsx` de ma route.
+3. Ajouter `{ cache: ’no-store’ }` à ma fonction qui utilise `fetch` pour aller chercher les données.
+
+Aucune des solutions fonctionne. Mince.
+Je trouve finalement je problèem après un moment en lisant `It’s not possible to opt out of the Router Cache.` plus bas dans <a href="https://nextjs.org/docs/app/building-your-application/caching#opting-out-3" target="_blank">la doc</a>.
+On ne peut tout simplement pas retirer le cache du router. Il faut donc trouver une autre solution.
+
+## Les solutions
+
+Et oui, il y en a plusieurs des solutions.
+
+1. Utiliser une donnée qui change entre chaque click de bouton
+
+On peut retrouver par exemple un timestamp dans l’url. C’est une solution qui fonctionne mais qui n’est pas très propre.<br />On peut aussi utiliser un UUID mais c’est un peu overkill pour un problème aussi simple.
+Dans tous les cas, c’est une solution qui fonctionne mais qui n’est pas très propre.
+
+2. Ne rien toucher (ça dépend pour qui)
+
+On peut aussi ne rien faire et laisser le cache faire son travail. C’est une solution qui fonctionne mais qui n’est pas très propre.
+Dans mon cas, je n’avais pas besoin de mettre en place une solution qui fonctionne mais qui n’est pas très propre. Le client en a rien à faire d’avoir des une actualisation des données à chaque click. Il y a plusieurs raisons à cela: <br /> Il met des prix pour de longues durées donc un prix ne viendra pas changer dans les quelques mois à venir, mois où les personnes réservent (leurs prix sont déjà fait pour 2024). <br /> Quelle est la probabilité qu’une personne veuille rafraichir sa recherche actuelle ? Surtout sur un site aussi peu fréquenté.
+J’espère juste que l’équipe de Vercel va solutionner ce problème rapidement.
+
+## Crédits
+
+_Crédits à <a href="https://medium.com/@CraftedX/why-i-hate-next-js-13-caching-4cd5a31d3a78" target="_blank">Youcef</a> pour une explication claire qui m’a permis de mieux comprendre et de vous partager mon expérience, les décisions que j’ai prises face à ce problème et à <a href="https://www.linkedin.com/in/thibaut-cuchet/" target="_blank">Thibaut Cuchet</a> pour l’idée d’un timestamp qui actualise l’URL._
