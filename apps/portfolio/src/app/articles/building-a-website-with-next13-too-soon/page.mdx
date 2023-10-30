@@ -26,7 +26,7 @@ Je suis conscient que mon choix technologique n’est pas le plus adapté au pro
 
 ## Le projet
 
-Brève explication de ce qu’est <a href="https://lapepite.net" target="_blank">la pépite</a>. C’est un site qui permet de réserver des chambres d’hôtes chez deux passionnés, Bernard et Chantal, dans les ardennes française. Les seuls requirements du client:
+Brève explication de ce qu’est [La Pépite](https://lapepite.net). C’est un site qui permet de réserver des chambres d’hôtes chez deux passionnés, Bernard et Chantal, dans les ardennes française. Les seuls requirements du client:
 
 - Le site doit être agréable, facile à utiliser et responsive
 - Le site doit pouvoir se connecter à des systèmes de réservation externes tels que Airbnb ou Booking.com
@@ -34,7 +34,7 @@ Brève explication de ce qu’est <a href="https://lapepite.net" target="_blank"
 
 ## Utilisation de Next 13
 
-Dans l’ensemble, j’ai été agréablement surpris par la facilité d’utilisation de Next13. On a une vague impression d’être sur un framework un petit peu différent que la version 12 mais la documentation assez complète permet de toujours retomber sur ses pieds. Il m’a fallu quelques aller-retours sur la <a href="https://nextjs.org/docs" target="_blank">documentation officielle</a> pour comprendre comment fonctionnent les layout, les templates, le nouvel API, et la nouvelle nomenclature de fichiers obligatoire. Mais une fois ces quelques notions acquises, j’ai pu avancer assez rapidement.
+Dans l’ensemble, j’ai été agréablement surpris par la facilité d’utilisation de Next13. On a une vague impression d’être sur un framework un petit peu différent que la version 12 mais la documentation assez complète permet de toujours retomber sur ses pieds. Il m’a fallu quelques aller-retours sur la [documentation officielle](https://nextjs.org/docs) pour comprendre comment fonctionnent les layout, les templates, le nouvel API, et la nouvelle nomenclature de fichiers obligatoire. Mais une fois ces quelques notions acquises, j’ai pu avancer assez rapidement.
 
 ## Des problèmes ?
 
@@ -55,7 +55,7 @@ Je me mets donc à la recherche d’une solution. Je me dis que ça doit être u
 3. Ajouter `{ cache: ’no-store’ }` à ma fonction qui utilise `fetch` pour aller chercher les données.
 
 Aucune des solutions fonctionne. Mince.
-Je trouve finalement je problèem après un moment en lisant `It’s not possible to opt out of the Router Cache.` plus bas dans <a href="https://nextjs.org/docs/app/building-your-application/caching#opting-out-3" target="_blank">la doc</a>.
+Je trouve finalement je problèem après un moment en lisant `It’s not possible to opt out of the Router Cache.` plus bas dans [la doc](https://nextjs.org/docs/app/building-your-application/caching#opting-out-3).
 On ne peut tout simplement pas retirer le cache du router. Il faut donc trouver une autre solution.
 
 ## Les solutions
@@ -75,4 +75,4 @@ J’espère juste que l’équipe de Vercel va solutionner ce problème rapideme
 
 ## Crédits
 
-_Crédits à <a href="https://medium.com/@CraftedX/why-i-hate-next-js-13-caching-4cd5a31d3a78" target="_blank">Youcef</a> pour une explication claire qui m’a permis de mieux comprendre et de vous partager mon expérience, les décisions que j’ai prises face à ce problème et à <a href="https://www.linkedin.com/in/thibaut-cuchet/" target="_blank">Thibaut Cuchet</a> pour l’idée d’un timestamp qui actualise l’URL._
+_Crédits à [Youcef](https://medium.com/@CraftedX/why-i-hate-next-js-13-caching-4cd5a31d3a78) pour une explication claire qui m’a permis de mieux comprendre et de vous partager mon expérience, les décisions que j’ai prises face à ce problème et à [Thibaut Cuchet](https://www.linkedin.com/in/thibaut-cuchet/) pour l’idée d’un timestamp qui actualise l’URL._

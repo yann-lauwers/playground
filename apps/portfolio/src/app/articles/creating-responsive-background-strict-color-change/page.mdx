@@ -1,6 +1,7 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
 import Image from 'next/image'
-import laPepite from './la-pepite.png'
+import laPepiteBackgroundColorChange from './la-pepite-background-color-change.png'
+import linearGradientCaniuse from './linear-gradient-caniuse.png'
 
 export const article = {
   author: 'Yann Lauwers',
@@ -17,71 +18,48 @@ export const metadata = {
 
 export default (props) => <ArticleLayout article={article} {...props} />
 
-Lately I had to create this kind of responsive background color change in the middle of a div. I struggled a lot to find a solution that would work on all browsers.
+Lors du dernier projet que j’ai eu à faire, la désigneuse m’a posé un petit challenge que je n'avais pas anticipé.
+Changer la couleur de mon background derrière une _div_ tout en gardant en compte que ça doit être responsive.
 
-<Image src={laPepite} alt="" />
+<Image src={laPepiteBackgroundColorChange} alt="" />
 
-I derive a large amount of my self-worth from whether or not Hacker News is impressed with the work I'm doing, so when I realized this, I cancelled all of our existing projects and started migrating everything to Rust immediately.
+## Context
 
-## Can I use
+J’ai passé une petite demi heure a essayer de faire ça grâce à la propriété CSS « position: absolute; ». Je réalise rapidement que c'est plus compliqué que prévu de faire tenir l'image et les contenus ensemble pour toutes les tailles d'écran possible.
+J'ai pensé à passer plein de temps à faire en sorte ma position soit toujours la bonne mais quand toutes les pages du site ont ce détail, je me dis que ce n'est pas la bonne solution. C'est trop de temps pour un problème banal.
 
-One of the first thing I did was to go on Caniuse to check the compatibility of Linear gradient with the browsers. It's a CSS property I do not often use so I prefer to make sure everyone will see what I see.
+## The great idea
 
-Deus feram verumque, fecit, ira tamen, terras per alienae victum. Mutantur
-levitate quas ubi arcum ripas oculos abest. Adest [commissaque
-victae](#) in gemitus nectareis ire diva
-dotibus ora, et findi huic invenit; fatis? Fractaque dare superinposita
-nimiumque simulatoremque sanguine, at voce aestibus diu! Quid veterum hausit tu
-nil utinam paternos ima, commentaque.
+Linear Gradient
 
-```c
-exbibyte_wins = gigahertz(3);
-grayscaleUtilityClient = control_uat;
-pcmciaHibernate = oop_virus_console(text_mountain);
-if (stateWaisFirewire >= -2) {
-    jfs = 647065 / ldapVrml(tutorialRestore, 85);
-    metal_runtime_parse = roomComputingResolution - toolbarUpload +
-            ipx_nvram_open;
-} else {
-    maximizeSidebar *= suffix_url(flatbed + 2, requirements_encoding_node +
-            only_qbe_media, minicomputer);
-}
+Pourquoi est-ce que je n'y ai pas pensé plus tôt. Je me lance sur la doc de tailwindcss et je vois qu'il y a `Linear gradients` et `Gradient Color Stops`. je fais un premier test avec une couleur de base et j'obtiens un changement de couleur progressif.
+
+```html
+<div class="bg-gradient-to-r from-indigo-500 to-blue-500"></div>
 ```
 
-Aere repetiti cognataque natus. Habebat vela solutis saepe munus nondum adhuc
-oscula nomina pignora corpus deserat.
+Tailwindcss ne me permet pas d'aller plus loin. En allant voir plus loin, je constate que les gradients permettent plein de changements de couleurs et ces changements peuvent se passer au même moment. Bingo! Je rajoute une seconde couleur et j'utilise les valeurs arbitraire de tailwindcss pour arriver au résultat final.
 
-## Lethaei Pindumve me quae dinumerat Pavor
-
-Idem se saxa fata pollentibus geminos; quos pedibus. Est urnis Herses omnes nec
-divite: et ille illa furit sim verbis Cyllenius.
-
-1. Captus inpleverunt collo
-2. Nec nam placebant
-3. Siquos vulgus
-4. Dictis carissime fugae
-5. A tacitos nulla viginti
-
-Ungues fistula annoso, ille addit linoque motatque uberior verso
-[rubuerunt](#) confine desuetaque. _Sanguine_ anteit
-emerguntque expugnacior est pennas iniqui ecce **haeret** genus: peiora imagine
-fossas Cephisos formosa! Refugitque amata [refelli](#)
-supplex. Summa brevis vetuere tenebas, hostes vetantis, suppressit, arreptum
-regna. Postquam conpescit iuvenis habet corpus, et erratica, perdere, tot mota
-ars talis.
-
-```c
-digital.webcam_dual_frequency = webmasterMms;
-if (5 + language_standalone_google) {
-    cc_inbox_layout *= file_character;
-    task += p;
-    lockUnicode += enterprise_monochrome(tokenFunctionPersonal, keyVirtual,
-            adf);
-}
-windows_binary_esports(87734, array(restoreRomTopology, adRaw(407314),
-        dongleBashThumbnail), interpreter);
+```html
+<div
+  class="bg-[linear-gradient(to_bottom,_#FFFFFF_0%,#FFFFFF_85%,#000000_85%,#000000_100%)]"
+></div>
 ```
 
-Sit volat naturam; motu Cancri. Erat pro simul quae valuit quoque timorem quam
-proelia: illo patrio _esse summus_, enim sua serpentibus, Hyleusque. Est coniuge
-recuso; refert Coroniden ignotos manat, adfectu.
+Décomposons ensemble pour comprendre tout ce qui se passe dans cette longue classe.
+
+1. `bg-[]` permet d'appliquer un background via les valeurs arbitraires. Pour plus de détails, voici la doc de [TW](https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values).
+2. `linear-gradient()` tout est dans le nom.
+3. `to_bottom` permet de définir la direction du gradient. Ici, je veux que le changement de couleur se fasse du haut vers le bas.
+4. `#FFFFFF_0%` est la couleur avec laquelle on commence.
+5. `#FFFFFF_85%` est la couleur avec laquelle on termine la transition. Ici, je veux que le changement de couleur se fasse à 85% de la hauteur de la div.
+6. `#000000_85%` est la nouvelle couleur avec laquelle on continue la transition. Comme vous pouvez le voir, je mets à nouveau 85% pour que la transition se fasse au même moment que la première transition.
+7. `#000000_100%` est la couleur qui ira jusqu'au bout de la div.
+
+### Can I use
+
+Une des première question que je me suis posé avant d'utiliser cette solution est `est-ce compatible avec tous les browsers` J'ai directement surfé sur Caniuse pour voir si la propriété CSS Linear gradient était compatible avec les navigateurs. C'est une propriété que j'utilise peu donc je préfère m'assurer que tout le monde verra ce que je vois.
+
+<Image src={linearGradientCaniuse} alt="" />
+
+Au moment où j'écris ces lignes, la propriété est compatible avec tous les navigateurs (ou presque). Ouf!
