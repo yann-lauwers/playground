@@ -2,13 +2,14 @@ import { ArticleLayout } from '@/components/ArticleLayout'
 import Image from 'next/image'
 import laPepiteBackgroundColorChange from './la-pepite-background-color-change.png'
 import linearGradientCaniuse from './linear-gradient-caniuse.png'
+import testBackgroundColorChange from './test-background-color-change.png'
 
 export const article = {
   author: 'Yann Lauwers',
   date: '2023-10-27',
   title: 'Creating a responsive background color change',
   description:
-    'I struggled a lot creating a responsive solution for background color change in the middle of a div. Linear gradient solves it all.',
+    'I share a creative solution for responsive background color changes in web design. I explain how I address a challenging design task and my initial attempt to use CSS properties. The "great idea" I stumbled upon was leveraging linear gradients to achieve precise and gradual color transitions.',
 }
 
 export const metadata = {
@@ -18,27 +19,36 @@ export const metadata = {
 
 export default (props) => <ArticleLayout article={article} {...props} />
 
-Lors du dernier projet que j’ai eu à faire, la désigneuse m’a posé un petit challenge que je n'avais pas anticipé.
-Changer la couleur de mon background derrière une _div_ tout en gardant en compte que ça doit être responsive.
+During the last project I had to work on, the designer presented me with a little challenge that I hadn't anticipated.
 
-<Image src={laPepiteBackgroundColorChange} alt="" />
+Changing the background color behind a div while keeping in mind that it should be responsive.
 
-## Context
+<Image
+  src={laPepiteBackgroundColorChange}
+  alt="Photo of a person taking a slice of a savory pie with a pie server"
+/>
 
-J’ai passé une petite demi heure a essayer de faire ça grâce à la propriété CSS « position: absolute; ». Je réalise rapidement que c'est plus compliqué que prévu de faire tenir l'image et les contenus ensemble pour toutes les tailles d'écran possible.
-J'ai pensé à passer plein de temps à faire en sorte ma position soit toujours la bonne mais quand toutes les pages du site ont ce détail, je me dis que ce n'est pas la bonne solution. C'est trop de temps pour un problème banal.
+## The Approach
 
-## The great idea
+I spent about half an hour trying to replicate this design by positioning the photo using the CSS property position: absolute. I quickly realized that it was more complicated than expected to make the image and content fit together for all possible screen sizes.
+
+After a few minutes of thought, I realized that if I had to do such precise and time-consuming work, I must be on the wrong track. It's too much time for such a common problem.
+
+## The Great Idea
 
 Linear Gradient
 
-Pourquoi est-ce que je n'y ai pas pensé plus tôt. Je me lance sur la doc de tailwindcss et je vois qu'il y a `Linear gradients` et `Gradient Color Stops`. je fais un premier test avec une couleur de base et j'obtiens un changement de couleur progressif.
+Why didn't I think of this earlier? I delved into the Tailwind CSS documentation and found "Linear gradients" and "Gradient Color Stops." I performed an initial test with a base color and achieved a gradual color change.
 
 ```html
 <div class="bg-gradient-to-r from-indigo-500 to-blue-500"></div>
 ```
 
-Tailwindcss ne me permet pas d'aller plus loin. En allant voir plus loin, je constate que les gradients permettent plein de changements de couleurs et ces changements peuvent se passer au même moment. Bingo! Je rajoute une seconde couleur et j'utilise les valeurs arbitraire de tailwindcss pour arriver au résultat final.
+Unfortunately, Tailwind CSS didn't allow me to go much further. I could add
+another color, but I couldn't ensure that the change happened at a specific
+point.
+
+However, while browsing the web, I discovered that the `linear-gradient` property allowed me to control precisely when I wanted to make my color change. Bingo! I added a second color and used arbitrary values from Tailwind CSS to achieve it.
 
 ```html
 <div
@@ -46,20 +56,77 @@ Tailwindcss ne me permet pas d'aller plus loin. En allant voir plus loin, je con
 ></div>
 ```
 
-Décomposons ensemble pour comprendre tout ce qui se passe dans cette longue classe.
+1. `bg-[]` applies a background using arbitrary values. For more details, here's the
+   [Tailwind CSS documentation](https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values).
 
-1. `bg-[]` permet d'appliquer un background via les valeurs arbitraires. Pour plus de détails, voici la doc de [TW](https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values).
-2. `linear-gradient()` tout est dans le nom.
-3. `to_bottom` permet de définir la direction du gradient. Ici, je veux que le changement de couleur se fasse du haut vers le bas.
-4. `#FFFFFF_0%` est la couleur avec laquelle on commence.
-5. `#FFFFFF_85%` est la couleur avec laquelle on termine la transition. Ici, je veux que le changement de couleur se fasse à 85% de la hauteur de la div.
-6. `#000000_85%` est la nouvelle couleur avec laquelle on continue la transition. Comme vous pouvez le voir, je mets à nouveau 85% pour que la transition se fasse au même moment que la première transition.
-7. `#000000_100%` est la couleur qui ira jusqu'au bout de la div.
+2. `linear-gradient()` speaks for itself.
 
-### Can I use
+3. `to_bottom` defines the direction of the gradient. Here, I want the color change to go from top to bottom.
 
-Une des première question que je me suis posé avant d'utiliser cette solution est `est-ce compatible avec tous les browsers` J'ai directement surfé sur Caniuse pour voir si la propriété CSS Linear gradient était compatible avec les navigateurs. C'est une propriété que j'utilise peu donc je préfère m'assurer que tout le monde verra ce que je vois.
+4. `#FFFFFF_0%` is the starting color.
 
-<Image src={linearGradientCaniuse} alt="" />
+5. `#FFFFFF_85%` is the color at which the transition ends. Here, I want the color change to happen at 85% of the div's height.
 
-Au moment où j'écris ces lignes, la propriété est compatible avec tous les navigateurs (ou presque). Ouf!
+6. `#000000_85%` is the new color at which the transition continues. As you can see, I use 85% again to ensure that the transition occurs at the same time as the first one.
+
+7. `#000000_100%` is the color that goes all the way to the bottom of the div.
+
+### In Practice
+
+More concretely, here's the code I used to achieve the final result:
+
+```jsx
+<div className="bg-[linear-gradient(to_bottom,_#C5EDAC_0%,#C5EDAC_85%,#93B1A7_85%,#93B1A7_100%)] p-10">
+  <div className="flex gap-10">
+    <div className="flex-1">
+      {/* Replace the following div with your image */}
+      <div className="aspect-square w-full bg-[#99C2A2]" />
+    </div>
+    <div className="flex flex-1 flex-col items-start justify-center">
+      <h2>Your title</h2>
+      <p className="mt-10">
+        Ipsum aliqua quis pariatur labore mollit ad. Sunt aliquip labore laborum
+        voluptate aliquip exercitation anim pariatur labore magna pariatur. Esse
+        minim dolore dolore proident enim tempor Lorem labore dolore excepteur
+        sit sit cillum.
+      </p>
+      <div className="mt-12">
+        <a href="/my-route">button</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div className="flex flex-col items-center bg-[#93B1A7] p-10 pt-0">
+  <h3>Another title</h3>
+  <p className="mt-10">
+    Ipsum fugiat aute ipsum amet do nisi reprehenderit sunt et ut ipsum
+    voluptate qui tempor. Ut ea ea laborum aute elit voluptate pariatur aute
+    magna pariatur qui officia incididunt.
+  </p>
+  <div className="mt-12">
+    <a href="/my-other-route">Another button</a>
+  </div>
+</div>
+```
+
+Resulting in the following output:
+
+<Image
+  src={testBackgroundColorChange}
+  alt="Color change using linear gradient from green to blue"
+/>
+
+### Can I Use
+
+One of the first questions I asked myself before using this solution was,
+`Is it compatible with all browsers?` I immediately checked Caniuse to see if the
+CSS property linear-gradient was supported by browsers. It's a property I use infrequently,
+so I prefer to ensure that everyone sees what I see.
+
+<Image
+  src={linearGradientCaniuse}
+  alt="Grid about the support of the CSS property linear-gradient on Caniuse"
+/>
+
+As of the time I'm writing these lines, the property is compatible with all browsers
+(or nearly all). Phew!
