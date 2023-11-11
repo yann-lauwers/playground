@@ -68,31 +68,38 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I’ve always enjoyed computers. I have always been fascinated by
-              the web and how it works. I was born with a computer, I fastly
-              learned how to use it and I never stopped since then. I remember
-              those old iMac G3 where love started.
+              I’ve been hooked on computers for as long as I can remember. The
+              internet has always been this fascinating realm for me, and I’ve
+              been navigating it since I was practically a kid. Born with a
+              computer, I picked up the ropes pretty fast, and I haven’t looked
+              back. Nostalgia hits hard when I think about those classic iMac G3
+              days – that’s where my tech journey kicked off!
             </p>
             <p>
-              I spent my childhood playing video games and playing tennis. I
-              remember building my first minecraft server at the age of 14. We
-              built a community of 80+ active players in the evenings. A great
-              project that led to a few computer confiscations. Then,like every
-              child would dream of, I tried to become a professional Call of
-              Duty 4 player. Guess what, I’m a web developer now.
+              My childhood was a mix of video games and tennis matches. Fond
+              memories include putting together my first Minecraft server at 14,
+              creating a vibrant community with 80+ active players every
+              evening. It was an exciting project that, as you might expect,
+              resulted in a few computer confiscations. Then came the phase
+              where, like any wide-eyed kid, I aimed to be a professional Call
+              of Duty 4 player. Fast forward to today, and here I am – not a
+              gaming pro, but a web developer
             </p>
             <p>
-              When I reached my 18th birthday, I decided to dismantle an old
-              Renault 4L, and to rebuild it from scratch. I spent 5 years
-              working on it, and I drove it to Marocco. I drove 6.000km in 10
-              days to bring school supplies to children in need. I also rebuilt
-              my dad’s old motorcycle, a Yamaha virago 750. I love to work with
-              my hands.
+              Turning 18 marked the beginning of an extraordinary journey for
+              me. I decided to take apart an old Renault 4L and rebuild it from
+              the ground up. It took me five years of dedication, but the result
+              was worth it. I drove it all the way to Morocco, covering 6,000 km
+              in just 10 days to deliver school supplies to children in need.
+              Not stopping there, I also tackled the restoration of my dad’s old
+              Yamaha Virago 750 motorcycle. There’s something incredibly
+              satisfying about working with my hands and bringing machines back
+              to life.
             </p>
             <p>
-              Today, I’m a passionate web developer, project manager and design
-              enthusiast. I plan to build impactful products that could enhance
-              people’s lives.
+              oday, I’m a dedicated web developer, a skilled project manager,
+              and a design enthusiast. My goal is to craft impactful products
+              that have the power to enhance people’s lives.
             </p>
           </div>
         </div>
