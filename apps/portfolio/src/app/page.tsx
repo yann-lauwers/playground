@@ -190,7 +190,7 @@ function Resume() {
   let resume: Array<Role> = [
     {
       company: 'Embie',
-      title: 'Project manager',
+      title: 'Lead project manager',
       logo: logoEmbie,
       start: '2023',
       end: {
@@ -200,9 +200,9 @@ function Resume() {
     },
     {
       company: 'Embie',
-      title: 'Full stack web developer',
+      title: 'Lead front-end developer',
       logo: logoEmbie,
-      start: '2021',
+      start: '2020',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear().toString(),

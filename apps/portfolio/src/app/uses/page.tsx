@@ -100,6 +100,10 @@ export default function Uses() {
             reminders to my professional and personal events. Fantastical is the
             best calendar app I’ve used so far that fits all my needs.
           </Tool>
+          <Tool title="Things 3">
+            I’ve tried a lot of to-do list apps, but Things 3 is the one that
+            works best for me. It’s simple, it’s fast, and it’s beautiful.
+          </Tool>
         </ToolsSection>
       </div>
     </SimpleLayout>
