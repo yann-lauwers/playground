@@ -47,30 +47,25 @@ export default function Uses() {
     >
       <div className="space-y-20">
         <ToolsSection title="Workstation">
-          <Tool title="13” MacBook Pro, M1, 16GB RAM (2020)">
+          <Tool title="16” MacBook Pro, M3 PRO, 18GB RAM (2024)">
             I have always used an Apple computer. I love the user experience
             they provide and the software design. Since they released Apple
             Silicon chips, we’re in a new world. No more noisy fans, and there’s
             power for everything.
           </Tool>
-          <Tool title="Samsung 32” Odissey G7 (curved)">
+          <Tool title="Samsung 49” ViewFinity S9 (curved)">
             The Samsung 32” Odyssey G7 (curved) boasts a mesmerizing QLED
             display, immersive 1000R curvature, and high-speed 240Hz refresh
             rate, elevating the coding and design experience.
           </Tool>
-          <Tool title="Targus docking station">
-            If there is one thing I really like when I sit down to work is the
-            ability to plug in a single cable and have everything just work.
-            This docking station does that for me.
-          </Tool>
         </ToolsSection>
         <ToolsSection title="Development tools">
-          <Tool title="Visual Studio Code">
+          <Tool title="Cursor">
             I’ve tried a few code editors. I’ve used WebStorm and Sublime Text,
             but I always come back to VS Code. It’s fast, it’s free, and has a
-            lot of cool plugins.
+            lot of cool plugins. But Cursor, it&apos;s the best of VS Code & AI.
+            Try it!
           </Tool>
-
           <Tool title="TablePlus">
             Great software for working with databases. Has saved me from
             building about a thousand admin interfaces for my various projects
