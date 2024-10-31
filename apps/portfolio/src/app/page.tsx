@@ -7,6 +7,7 @@ import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import logoEmbie from '@/images/logos/embie.svg'
+import logoBizzcontrol from '@/images/logos/bizzcontrol.png'
 import image1 from '@/images/photos/moto.jpg'
 import image2 from '@/images/photos/triathlon_bycicle.jpg'
 import image3 from '@/images/photos/code.jpg'
@@ -188,16 +189,20 @@ function Resume() {
       title: 'Lead project manager',
       logo: logoEmbie,
       start: '2023',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear().toString(),
-      },
+      end: '2024',
     },
     {
       company: 'Embie',
       title: 'Lead front-end developer',
       logo: logoEmbie,
       start: '2020',
+      end: '2024',
+    },
+    {
+      company: 'Bizzcontrol',
+      title: 'Front-end developer',
+      logo: logoBizzcontrol,
+      start: '2024',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear().toString(),
