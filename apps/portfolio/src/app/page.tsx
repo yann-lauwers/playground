@@ -5,18 +5,13 @@ import clsx from 'clsx'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import {
-  GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  TwitterIcon,
-} from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import logoEmbie from '@/images/logos/embie.svg'
-import image1 from '@/images/photos/4l-trophy.jpg'
-import image2 from '@/images/photos/triathlon-bycicle.jpg'
-import image3 from '@/images/photos/moto.jpg'
-import image4 from '@/images/photos/hockey.jpg'
-import image5 from '@/images/photos/golf.jpg'
+import image1 from '@/images/photos/moto.jpg'
+import image2 from '@/images/photos/triathlon_bycicle.jpg'
+import image3 from '@/images/photos/code.jpg'
+import image4 from '@/images/photos/run.jpg'
+import image5 from '@/images/photos/velo_allemagne.jpg'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 
