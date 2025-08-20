@@ -2,6 +2,7 @@ import { type Metadata } from 'next'
 
 import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
+import * as Sentry from '@sentry/nextjs'
 
 import '@/styles/tailwind.css'
 
@@ -17,6 +18,9 @@ export const metadata: Metadata = {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
     },
+  },
+  other: {
+    ...Sentry.getTraceData(),
   },
 }
 
