@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "skills": {
+    "frontend-accessibility": {
+      "source": "yann-lauwers/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-accessibility/SKILL.md",
+      "computedHash": "035689507ffff7a5046c93e0e5cd3e7685adc400a366825364a17db6033c9aad"
+    },
+    "nextjs-patterns": {
+      "source": "yann-lauwers/skills",
+      "sourceType": "github",
+      "skillPath": "skills/nextjs-patterns/SKILL.md",
+      "computedHash": "4c1d8807ec1f8edf90370d077be84265628e00f71b2cb1982be2c8319f4ee386"
+    },
+    "react-patterns": {
+      "source": "yann-lauwers/skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-patterns/SKILL.md",
+      "computedHash": "9f983e0b1b5d6bb6dd562f3e05c368fe4767135438d6a8d03688d031a10a6044"
+    },
+    "react-performance": {
+      "source": "yann-lauwers/skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-performance/SKILL.md",
+      "computedHash": "779df478e3be2e93ac7e4a1f21ecadd965f5d1ef9f65ee55950f89c5d5df1353"
+    },
+    "react-testing": {
+      "source": "yann-lauwers/skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-testing/SKILL.md",
+      "computedHash": "c5debc67c4e74cf4228f021bcb073634f74323eb0cbeadf03ee13b1ae2cfb70d"
+    },
+    "typescript-patterns": {
+      "source": "yann-lauwers/skills",
+      "sourceType": "github",
+      "skillPath": "skills/typescript-patterns/SKILL.md",
+      "computedHash": "55ba2f9753beb881dbf5969d1ec664923812f7cf09a0e215cf0035b85137531a"
+    }
+  }
+}
